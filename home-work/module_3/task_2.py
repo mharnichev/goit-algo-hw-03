@@ -26,6 +26,27 @@
 # Відповідність вимогам: результат має бути у вигляді відсортованого списку.
 # Читабельність коду: код має бути чистим і добре документованим.
 
+import random
 
 def get_numbers_ticket(min, max, quantity):
-    
+    if min < 1 or max > 1000 or min > max or quantity < 1 or quantity > (max - min + 1): 
+        return []
+
+    unique_numbers = []
+
+    while len(unique_numbers) < quantity:
+        random_number = random.randint(min, max)
+        if random_number not in unique_numbers:
+            unique_numbers.append(random_number)
+
+    unique_numbers.sort()    
+
+    return unique_numbers
+
+
+result_check = get_numbers_ticket(1, 49, 6)
+
+print(f"result is: {result_check}")
+
+
+
