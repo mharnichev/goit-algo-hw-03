@@ -26,17 +26,17 @@
 from datetime import datetime
 
 def get_days_from_today(date: str = None):
-    if date == None:
+    if date is None:
         return datetime.now().day
     
     try:
-        date_str = datetime.strptime(date, "%Y-%m-%d")
+        input_date = datetime.strptime(date, "%Y-%m-%d")
     except ValueError:
         return 0
     
-    date_now = datetime.now()
+    date_now = datetime.now().date()
 
-    return (date_str - date_now).days
+    return (date_now - input_date).days
 
 
 result_next_year = get_days_from_today('2027-10-09')
