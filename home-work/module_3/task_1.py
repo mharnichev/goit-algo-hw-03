@@ -34,9 +34,9 @@ def get_days_from_today(date: str = None):
     except ValueError:
         return 0
     
-    date_now = datetime.now().date()
+    date_now = datetime.now()
 
-    return (date_now - input_date).days
+    return (input_date - date_now).days
 
 
 result_next_year = get_days_from_today('2027-10-09')
