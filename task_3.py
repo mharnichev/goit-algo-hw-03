@@ -62,7 +62,7 @@ def sanitizing_numbers(phone_numbers):
     for number in phone_numbers:
        sanitized_number = re.sub(r'\D', '', number)
        if sanitized_number not in sanitized_numbers:
-        sanitized_numbers.append(sanitized_number)
+            sanitized_numbers.append(sanitized_number)
 
     return sanitized_numbers
 
@@ -86,6 +86,7 @@ print(clear_list)
 print(clear_list_with_duplicate)
 
     
+
 
 
 
