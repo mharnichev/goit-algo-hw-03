@@ -30,22 +30,27 @@ def get_days_from_today(date: str = None):
         return datetime.now().day
     
     try:
-        input_date = datetime.strptime(date, "%Y-%m-%d")
+        input_date = datetime.strptime(date, "%Y-%m-%d").date()
     except ValueError:
         return 0
     
-    date_now = datetime.now()
+    date_now = datetime.now().date()
+
+    print(f"Input date: {input_date}"
+          f"\nCurrent date: {date_now}")
 
     return (input_date - date_now).days
 
 
 result_next_year = get_days_from_today('2027-10-09')
 result_current_year = get_days_from_today('2026-01-01')
+result_current_day = get_days_from_today(str(datetime.now().strftime("%Y-%m-%d")))
 result_wrong_arg_str = get_days_from_today('2222-')
 result_forgot_arg = get_days_from_today()
 
-print(f"Next year pls: {result_next_year}")
-print(f"Current year pls: {result_current_year}")
+print(f"Next year: {result_next_year}")
+print(f"Current year: {result_current_year}")
+print(f"Current day: {result_current_day}")
 print(f"Ups, wrong arg: {result_wrong_arg_str}")
 print(f"Ups, forgot arg, pls return current day: {result_forgot_arg}")
     
